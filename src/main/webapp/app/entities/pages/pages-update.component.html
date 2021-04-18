@@ -1,0 +1,130 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-pages-heading" jhiTranslate="riscScraperAdmApp.pages.home.createOrEditLabel">Create or edit a Pages</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!pages.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="pages.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.idscrapyData" for="field_idscrapyData">Idscrapy Data</label>
+                    <input type="number" class="form-control" name="idscrapyData" id="field_idscrapyData"
+                        [(ngModel)]="pages.idscrapyData" required/>
+                    <div [hidden]="!(editForm.controls.idscrapyData?.dirty && editForm.controls.idscrapyData?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.idscrapyData?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.idscrapyData?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.headerData" for="field_headerData">Header Data</label>
+                    <textarea class="form-control" name="headerData" id="field_headerData"
+                        [(ngModel)]="pages.headerData" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.bodyData" for="field_bodyData">Body Data</label>
+                    <textarea class="form-control" name="bodyData" id="field_bodyData"
+                        [(ngModel)]="pages.bodyData" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.autorData" for="field_autorData">Autor Data</label>
+                    <textarea class="form-control" name="autorData" id="field_autorData"
+                        [(ngModel)]="pages.autorData" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.dateData" for="field_dateData">Date Data</label>
+                    <textarea class="form-control" name="dateData" id="field_dateData"
+                        [(ngModel)]="pages.dateData" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.headerClean" for="field_headerClean">Header Clean</label>
+                    <textarea class="form-control" name="headerClean" id="field_headerClean"
+                        [(ngModel)]="pages.headerClean" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.bodyClean" for="field_bodyClean">Body Clean</label>
+                    <textarea class="form-control" name="bodyClean" id="field_bodyClean"
+                        [(ngModel)]="pages.bodyClean" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.autorClean" for="field_autorClean">Autor Clean</label>
+                    <textarea class="form-control" name="autorClean" id="field_autorClean"
+                        [(ngModel)]="pages.autorClean" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.dateClean" for="field_dateClean">Date Clean</label>
+                    <textarea class="form-control" name="dateClean" id="field_dateClean"
+                        [(ngModel)]="pages.dateClean" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.resumeClean" for="field_resumeClean">Resume Clean</label>
+                    <textarea class="form-control" name="resumeClean" id="field_resumeClean"
+                        [(ngModel)]="pages.resumeClean" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.resumeData" for="field_resumeData">Resume Data</label>
+                    <textarea class="form-control" name="resumeData" id="field_resumeData"
+                        [(ngModel)]="pages.resumeData" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.screenshot" for="field_screenshot">Screenshot</label>
+                    <div>
+                        <img [src]="'data:' + pages.screenshotContentType + ';base64,' + pages.screenshot" style="max-height: 100px;" *ngIf="pages.screenshot" alt="pages image"/>
+                        <div *ngIf="pages.screenshot" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{pages.screenshotContentType}}, {{byteSize(pages.screenshot)}}</span>
+                            <button type="button" (click)="clearInputImage('screenshot', 'screenshotContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_screenshot" (change)="setFileData($event, pages, 'screenshot', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="screenshot" id="field_screenshot"
+                        [(ngModel)]="pages.screenshot" />
+                    <input type="hidden" class="form-control" name="screenshotContentType" id="field_screenshotContentType"
+                        [(ngModel)]="pages.screenshotContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.date" for="field_date">Date</label>
+                    <div class="d-flex">
+                        <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="date"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.fullPath" for="field_fullPath">Full Path</label>
+                    <input type="text" class="form-control" name="fullPath" id="field_fullPath"
+                        [(ngModel)]="pages.fullPath" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.url" for="field_url">Url</label>
+                    <input type="text" class="form-control" name="url" id="field_url"
+                        [(ngModel)]="pages.url" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="riscScraperAdmApp.pages.portal" for="field_portal">Portal</label>
+                    <select class="form-control" id="field_portal" name="portal" [(ngModel)]="pages.portal" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="portalOption.id === pages.portal?.id ? pages.portal : portalOption" *ngFor="let portalOption of portals; trackBy: trackPortalById">{{portalOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+
+{
+    "riscScraperAdmApp": {
+        "portal" : {
+            "home": {
+                "title": "Portals",
+                "createLabel": "Create a new Portal",
+                "createOrEditLabel": "Create or edit a Portal"
+            },
+            "created": "A new Portal is created with identifier {{ param }}",
+            "updated": "A Portal is updated with identifier {{ param }}",
+            "deleted": "A Portal is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Portal {{ id }}?"
+            },
+            "detail": {
+                "title": "Portal"
+            },
+            "idscrapyData": "Idscrapy Data",
+            "name": "Name",
+            "domain": "Domain",
+            "url": "Url",
+            "headerPath": "Header Path",
+            "bodyPath": "Body Path",
+            "autorPath": "Autor Path",
+            "datePath": "Date Path",
+            "resumePath": "Resume Path",
+            "path": "Path",
+            "xpath": "Xpath",
+            "identifier": "Identifier",
+            "usuario": "Usuario",
+            "fecha": "Fecha",
+            "scheduler": "Scheduler",
+            "portalType": "Portal Type",
+            "pages": "Pages",
+            "customer": "Customer"
+        }
+    }
+}

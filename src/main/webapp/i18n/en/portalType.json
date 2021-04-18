@@ -1,0 +1,23 @@
+
+{
+    "riscScraperAdmApp": {
+        "portalType" : {
+            "home": {
+                "title": "Portal Types",
+                "createLabel": "Create a new Portal Type",
+                "createOrEditLabel": "Create or edit a Portal Type"
+            },
+            "created": "A new Portal Type is created with identifier {{ param }}",
+            "updated": "A Portal Type is updated with identifier {{ param }}",
+            "deleted": "A Portal Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Portal Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Portal Type"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Portal.
+    -->
+    <changeSet id="20181114072445-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="scheduler_id"
+                                 baseTableName="portal"
+                                 constraintName="fk_portal_scheduler_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="scheduler"/>
+
+        <addForeignKeyConstraint baseColumnNames="portal_type_id"
+                                 baseTableName="portal"
+                                 constraintName="fk_portal_portal_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="portal_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="customer_id"
+                                 baseTableName="portal"
+                                 constraintName="fk_portal_customer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="customer"/>
+
+    </changeSet>
+</databaseChangeLog>

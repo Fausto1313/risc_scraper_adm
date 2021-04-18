@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="scheduler">
+            <h2><span jhiTranslate="riscScraperAdmApp.scheduler.detail.title">Scheduler</span> {{scheduler.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="riscScraperAdmApp.scheduler.identifier">Identifier</span></dt>
+                <dd>
+                    <span>{{scheduler.identifier}}</span>
+                </dd>
+                <dt><span jhiTranslate="riscScraperAdmApp.scheduler.status">Status</span></dt>
+                <dd>
+                    <span>{{scheduler.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="riscScraperAdmApp.scheduler.actor">Actor</span></dt>
+                <dd>
+                    <span>{{scheduler.actor}}</span>
+                </dd>
+                <dt><span jhiTranslate="riscScraperAdmApp.scheduler.schedule">Schedule</span></dt>
+                <dd>
+                    <span>{{scheduler.schedule}}</span>
+                </dd>
+                <dt><span jhiTranslate="riscScraperAdmApp.scheduler.project">Project</span></dt>
+                <dd>
+                    <span>{{scheduler.project}}</span>
+                </dd>
+                <dt><span jhiTranslate="riscScraperAdmApp.scheduler.spider">Spider</span></dt>
+                <dd>
+                    <span>{{scheduler.spider}}</span>
+                </dd>
+                <dt><span jhiTranslate="riscScraperAdmApp.scheduler.timestamp">Timestamp</span></dt>
+                <dd>
+                    <span>{{scheduler.timestamp}}</span>
+                </dd>
+                <dt><span jhiTranslate="riscScraperAdmApp.scheduler.duration">Duration</span></dt>
+                <dd>
+                    <span>{{scheduler.duration}}</span>
+                </dd>
+                <dt><span jhiTranslate="riscScraperAdmApp.scheduler.jobidentifier">Jobidentifier</span></dt>
+                <dd>
+                    <span>{{scheduler.jobidentifier}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/scheduler', scheduler.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-portal-heading" jhiTranslate="riscScraperAdmApp.portal.home.createOrEditLabel">Create or edit a Portal</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!portal.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="portal.id" readonly />
+                </div>                
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Nombre</label>
+                    <input type="text" class="form-control" name="name" id="field_name" placeholder="Nombre de la Página"
+                        [(ngModel)]="portal.name" required/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_domain">Dominio</label>
+                    <input type="text" class="form-control" name="domain" id="field_domain" placeholder="Ejemplo ejemplo.com ejemplo.net"
+                        [(ngModel)]="portal.domain" required/>
+                    <div [hidden]="!(editForm.controls.domain?.dirty && editForm.controls.domain?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.domain?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_url">URL</label>
+                    <input type="text" class="form-control" name="url" id="field_url" placeholder="Ejemplo https://www.pagina.com.mx"
+                        [(ngModel)]="portal.url" required/>
+                    <div [hidden]="!(editForm.controls.url?.dirty && editForm.controls.url?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.url?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_headerPath">P Titulo</label>
+                    <input type="text" class="form-control" name="headerPath" id="field_headerPath" placeholder="Ejemplo //*[@id=main-content]/div[4]"
+                        [(ngModel)]="portal.headerPath" required/>
+                    <div [hidden]="!(editForm.controls.headerPath?.dirty && editForm.controls.headerPath?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.headerPath?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_resumePath">P Sintesis</label>
+                    <input type="text" class="form-control" name="resumePath" id="field_resumePath" placeholder="Ejemplo //*[@id=main-content]/div[4]"
+                        [(ngModel)]="portal.resumePath" required/>
+                    <div [hidden]="!(editForm.controls.resumePath?.dirty && editForm.controls.resumePath?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.resumePath?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label"  for="field_autorPath">P Autor</label>
+                    <input type="text" class="form-control" name="autorPath" id="field_autorPath" placeholder="Ejemplo //*[@id=main-content]/div[4]"
+                        [(ngModel)]="portal.autorPath" required/>
+                    <div [hidden]="!(editForm.controls.autorPath?.dirty && editForm.controls.autorPath?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.autorPath?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_datePath">P Fecha</label>
+                    <input type="text" class="form-control" name="datePath" id="field_datePath" placeholder="Ejemplo //*[@id=main-content]/div[4]"
+                        [(ngModel)]="portal.datePath" required/>
+                    <div [hidden]="!(editForm.controls.datePath?.dirty && editForm.controls.datePath?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.datePath?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_bodyPath">P Nota</label>
+                    <input type="text" class="form-control" name="bodyPath" id="field_bodyPath" placeholder="Ejemplo //*[@id=main-content]/div[4]"
+                        [(ngModel)]="portal.bodyPath" required/>
+                    <div [hidden]="!(editForm.controls.bodyPath?.dirty && editForm.controls.bodyPath?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.bodyPath?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>   
+                            
+                <div class="form-group">
+                    <label class="form-control-label"  for="field_path">Ruta de la Imagen</label>
+                    <input type="text" class="form-control" name="path" id="field_path" placeholder="Ejemplo /home/usuario/entorno/"
+                        [(ngModel)]="portal.path" required/>
+                    <div [hidden]="!(editForm.controls.path?.dirty && editForm.controls.path?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.path?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>    
+                <div class="form-group">
+                    <label class="form-control-label" for="field_xpath">Xpath</label>
+                    <input type="checkbox" class="form-control" name="xpath" id="field_xpath"
+                        [(ngModel)]="portal.xpath" />
+                    <div [hidden]="!(editForm.controls.xpath?.dirty && editForm.controls.xpath?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.xpath?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>            
+                <div class="form-group">
+                    <label class="form-control-label"  for="field_scheduler">Programador</label>
+                    <select class="form-control" id="field_scheduler" name="scheduler" [(ngModel)]="portal.scheduler">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="schedulerOption.id === portal.scheduler?.id ? portal.scheduler : schedulerOption" *ngFor="let schedulerOption of schedulers; trackBy: trackSchedulerById">{{schedulerOption.schedule}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_portalType">Tipo de Portal</label>
+                    <select class="form-control" id="field_portalType" name="portalType" [(ngModel)]="portal.portalType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="portalTypeOption.id === portal.portalType?.id ? portal.portalType : portalTypeOption" *ngFor="let portalTypeOption of portaltypes; trackBy: trackPortalTypeById">{{portalTypeOption.name}}</option>
+                    </select>
+                </div>                
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

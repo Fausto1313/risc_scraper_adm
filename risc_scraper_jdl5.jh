@@ -1,0 +1,76 @@
+/** Product sold by the Online store */
+entity Customer {
+firstName String required
+lastName String required
+email String required
+phone String required
+addressLine1 String required
+addressLine2 String
+city String required
+country String required
+}
+
+entity Scheduler {
+identifier String required
+status Integer required
+actor Integer required
+schedule String
+project String required
+spider String required
+timestamp ZonedDateTime required
+duration Integer
+jobidentifier String
+}
+
+entity Portal {
+idscrapyData Integer
+name String required
+domain String required
+url String required
+headerPath String
+bodyPath String
+autorPath String
+datePath String
+resumePath String
+path String
+identifier String
+usuario String
+}
+
+entity PortalType {
+name String required
+description String required
+}
+
+entity Pages {
+idscrapyData Integer required
+headerData TextBlob
+bodyData TextBlob
+autorData TextBlob
+dateData TextBlob
+headerClean TextBlob
+bodyClean TextBlob
+autorClean TextBlob
+dateClean TextBlob
+resumeClean TextBlob
+resumeData TextBlob
+screenshot ImageBlob
+date ZonedDateTime
+fullPath String
+url String
+}
+
+relationship OneToMany {
+  Portal{pages} to Pages{portal},
+  Customer{portal} to Portal{customer}
+}
+
+relationship OneToOne {
+  Portal{scheduler(schedule)} to Scheduler
+  Portal{portalType(name)} to PortalType
+  Customer{user} to User
+}
+
+service * with serviceImpl
+paginate * with pagination
+

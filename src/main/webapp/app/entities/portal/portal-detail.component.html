@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="portal">
+            <h2><span >Portales</span> </h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">                
+                <dt><span >Nombre</span></dt>
+                <dd>
+                    <span>{{portal.name}}</span>
+                </dd>
+                <dt><span >Dominio</span></dt>
+                <dd>
+                    <span>{{portal.domain}}</span>
+                </dd>
+                <dt><span >URL</span></dt>
+                <dd>
+                    <span>{{portal.url}}</span>
+                </dd>
+                <dt><span >P Titulo</span></dt>
+                <dd>
+                    <span>{{portal.headerPath}}</span>
+                </dd>
+                <dt><span>P Sintesis</span></dt>
+                <dd>
+                    <span>{{portal.resumePath}}</span>
+                </dd>
+                <dt><span >P Autor</span></dt>
+                <dd>
+                    <span>{{portal.autorPath}}</span>
+                </dd>
+                <dt><span >P Fecha</span></dt>
+                <dd>
+                    <span>{{portal.datePath}}</span>
+                </dd>                
+                <dt><span >P Nota</span></dt>
+                <dd>
+                    <span>{{portal.bodyPath}}</span>
+                </dd>               
+                                
+                <dt><span >Ruta de Imagen</span></dt>
+                <dd>
+                    <span>{{portal.path}}</span>
+                </dd>
+                <dt><span >Xpath</span></dt>
+                <dd>
+                    <span>{{portal.xpath}}</span>
+                </dd>
+                <dt><span >Programador</span></dt>
+                <dd>
+                    <div *ngIf="portal.scheduler">
+                        <a [routerLink]="['/scheduler', portal.scheduler?.id, 'view']">{{portal.scheduler?.schedule}}</a>
+                    </div>
+                </dd>                
+                <dt><span jhiTranslate="riscScraperAdmApp.portal.usuario">Usuario</span></dt>
+                <dd>
+                    <span>{{portal.usuario}}</span>
+                </dd>
+                <dt><span jhiTranslate="riscScraperAdmApp.portal.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{portal.fecha}}</span>
+                </dd>                
+                <dt><span >Tipo de Portal</span></dt>
+                <dd>
+                    <div *ngIf="portal.portalType">
+                        <a [routerLink]="['/portal-type', portal.portalType?.id, 'view']">{{portal.portalType?.name}}</a>
+                    </div>
+                </dd>                
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/portal', portal.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

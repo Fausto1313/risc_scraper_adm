@@ -1,0 +1,37 @@
+
+{
+    "riscScraperAdmApp": {
+        "pages" : {
+            "home": {
+                "title": "Pages",
+                "createLabel": "Crear nuevo Pages",
+                "createOrEditLabel": "Crear o editar Pages"
+            },
+            "created": "Un nuevo Pages ha sido creado con el identificador {{ param }}",
+            "updated": "Un Pages ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Pages ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Pages {{ id }}?"
+            },
+            "detail": {
+                "title": "Pages"
+            },
+            "idscrapyData": "Idscrapy Data",
+            "headerData": "Header Data",
+            "bodyData": "Body Data",
+            "autorData": "Autor Data",
+            "dateData": "Date Data",
+            "headerClean": "Header Clean",
+            "bodyClean": "Body Clean",
+            "autorClean": "Autor Clean",
+            "dateClean": "Date Clean",
+            "resumeClean": "Resume Clean",
+            "resumeData": "Resume Data",
+            "screenshot": "Screenshot",
+            "date": "Date",
+            "fullPath": "Full Path",
+            "url": "Url",
+            "portal": "Portal"
+        }
+    }
+}

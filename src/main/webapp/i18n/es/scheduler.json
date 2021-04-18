@@ -1,0 +1,30 @@
+
+{
+    "riscScraperAdmApp": {
+        "scheduler" : {
+            "home": {
+                "title": "Schedulers",
+                "createLabel": "Crear nuevo Scheduler",
+                "createOrEditLabel": "Crear o editar Scheduler"
+            },
+            "created": "Un nuevo Scheduler ha sido creado con el identificador {{ param }}",
+            "updated": "Un Scheduler ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Scheduler ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Scheduler {{ id }}?"
+            },
+            "detail": {
+                "title": "Scheduler"
+            },
+            "identifier": "Identifier",
+            "status": "Status",
+            "actor": "Actor",
+            "schedule": "Schedule",
+            "project": "Project",
+            "spider": "Spider",
+            "timestamp": "Timestamp",
+            "duration": "Duration",
+            "jobidentifier": "Jobidentifier"
+        }
+    }
+}

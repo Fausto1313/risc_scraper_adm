@@ -1,0 +1,92 @@
+<h2 id="page-heading">
+        Portales
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-portal" [routerLink]="['/portal/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="riscScraperAdmApp.portal.home.createLabel">
+            Create new Portal
+            </span>
+        </button>        
+    </h2>
+    
+    <mat-input-container>
+    <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filtrar" size="150">
+     </mat-input-container>
+
+<table mat-table [dataSource]="dataSource" matSort>
+  
+ 
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}}  </td>
+  </ng-container>
+ 
+  <ng-container matColumnDef="domain">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Dominio</th>
+    <td mat-cell *matCellDef="let element"> {{element.domain}}  </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="url">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> URL</th>
+    <td mat-cell *matCellDef="let element"> {{element.url}}  </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="path">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Ruta Imagen </th>
+    <td mat-cell *matCellDef="let element"> {{element.path}}  </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="scheduler">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Programador </th>
+    <td mat-cell *matCellDef="let element"> {{element.scheduler?.schedule}}  </td>
+  </ng-container>
+ 
+  <ng-container matColumnDef="details">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let element">
+<button type="submit"  [routerLink]="['/portal', element.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" ></span>
+                        </button>   
+    
+      
+    </td>
+  </ng-container>
+ 
+  <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element">
+      <button type="submit"  [routerLink]="['/portal', element.id, 'edit']"  class="btn btn-primary btn-sm">
+        <fa-icon [icon]="'pencil-alt'"></fa-icon> <span class="d-none d-md-inline" ></span>
+      </button>        
+      </td>
+    </ng-container>
+ 
+    <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <td mat-cell *matCellDef="let element">
+          <button type="submit"  [routerLink]="['/', { outlets: { popup: 'portal/'+ element.id + '/delete'} }]" replaceUrl="true" queryParamsHandling="merge"  class="btn btn-danger btn-sm">                                                                                                         
+          <fa-icon [icon]="'times'"></fa-icon>  <span class="d-none d-md-inline" ></span>
+          </button>
+        </td>
+      </ng-container>
+ 
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+<div>
+
+<div>
+    
+    </div>
+    <div *ngIf="portals && portals.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="pages" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

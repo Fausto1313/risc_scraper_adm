@@ -1,0 +1,15 @@
+version: '2'
+services:
+    risc_scraper_adm-app:
+        image: risc_scraper_adm
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://risc_scraper_adm-mysql:3306/risc_scraper_adm?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    risc_scraper_adm-mysql:
+        extends:
+            file: mysql.yml
+            service: risc_scraper_adm-mysql

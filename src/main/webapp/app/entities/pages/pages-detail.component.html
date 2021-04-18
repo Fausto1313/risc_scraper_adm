@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pages">
+            <h2><span jhiTranslate="riscScraperAdmApp.pages.detail.title">Pages</span> {{pages.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">                
+                <dt><span title="Encabezado de la nota">Encabezado</span></dt>
+                <dd>
+                    <span>{{pages.headerClean}}</span>
+                </dd> 
+                <dt><span title="Cuerpo de la nota">Cuerpo</span></dt>
+                <dd>
+                    <span>{{pages.bodyClean}}</span>
+                </dd>
+                <dt><span title="Autor de la nota">Autor</span></dt>
+                <dd>
+                    <span>{{pages.autorClean}}</span>
+                </dd>
+                <dt><span title="Fecha de la nota">Fecha Nota</span></dt>
+                <dd>
+                    <span>{{pages.dateClean}}</span>
+                </dd>                
+                <dt><span title="Resumen de la nota">Resumen Nota</span></dt>
+                <dd>
+                    <span>{{pages.resumeClean}}</span>
+                </dd>                
+                <dt><span title="Fecha captura de la nota">Fecha Captura</span></dt>
+                <dd>
+                    <span>{{pages.date}}</span>
+                </dd>
+                <dt><span title="Dirección Completa de la imagen">Dirección Imagen</span></dt>
+               <dd>
+                    <span><a href="{{pages.fullPath}}" target="_blank">{{pages.fullPath}}</a></span>
+                </dd>
+                <dt><span title="URL de la nota">URL</span></dt>
+                <dd>
+                    <span><a href="{{pages.url}}" target="_blank">{{pages.url}}</a></span>
+                </dd>
+                <dt><span jhiTranslate="riscScraperAdmApp.pages.portal">Portal</span></dt>
+                <dd>
+                    <div *ngIf="pages.portal">
+                        <a [routerLink]="['/portal', pages.portal?.id, 'view']">{{pages.portal?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pages', pages.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
